@@ -1,0 +1,225 @@
+﻿@model SCTS.IdentityServer4.Controllers.Claims.FormClaimsModel
+
+@{
+    ViewData["Title"] = "Claims";
+}
+
+<h2>Manage Claims</h2>
+<h4>I primi tre sono claims di default, gli altri possono essere custom Claims</h4>
+<form asp-action="Index" asp-controller="Claims" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"></h3>
+                </div>
+                <div class="panel-body">
+                    <fieldset>
+                        <div class="form-group">
+                            <div>
+                                <input type="submit" value="Add Claims for User" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Users List</h3>
+                </div>
+                <div class="panel-body">
+                    <select class=" form-control" 
+                            asp-for="Id" 
+                            asp-items="@(new SelectList(ViewBag.UserList, "Id", "UserName"))">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Select Claims For Selected User</h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="warning">
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimType1" class="control-label"></label>
+                                        <input asp-for="ClaimType1" class="form-control" />
+                                        <span asp-validation-for="ClaimType1" class="text-danger"></span>
+                                   </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimValue1" class="control-label"></label>
+                                        <input asp-for="ClaimValue1" class="form-control" />
+                                        <span asp-validation-for="ClaimValue1" class="text-danger"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="warning">
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimType2" class="control-label"></label>
+                                        <input asp-for="ClaimType2" class="form-control" />
+                                        <span asp-validation-for="ClaimType2" class="text-danger"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimValue2" class="control-label"></label>
+                                        <input asp-for="ClaimValue2" class="form-control" />
+                                        <span asp-validation-for="ClaimValue2" class="text-danger"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="warning">
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimType3" class="control-label"></label>
+                                        <input asp-for="ClaimType3" class="form-control" />
+                                        <span asp-validation-for="ClaimType3" class="text-danger"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimValue3" class="control-label"></label>
+                                        <input asp-for="ClaimValue3" class="form-control" />
+                                        <span asp-validation-for="ClaimValue3" class="text-danger"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="success">
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimType4" class="control-label"></label>
+                                        <input asp-for="ClaimType4" class="form-control" />
+                                        <span asp-validation-for="ClaimType4" class="text-danger"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimValue4" class="control-label"></label>
+                                        <input asp-for="ClaimValue4" class="form-control" />
+                                        <span asp-validation-for="ClaimValue4" class="text-danger"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="success">
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimType5" class="control-label"></label>
+                                        <input asp-for="ClaimType5" class="form-control" />
+                                        <span asp-validation-for="ClaimType5" class="text-danger"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimValue5" class="control-label"></label>
+                                        <input asp-for="ClaimValue5" class="form-control" />
+                                        <span asp-validation-for="ClaimValue5" class="text-danger"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="success">
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimType6" class="control-label"></label>
+                                        <input asp-for="ClaimType6" class="form-control" />
+                                        <span asp-validation-for="ClaimType6" class="text-danger"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimValue6" class="control-label"></label>
+                                        <input asp-for="ClaimValue6" class="form-control" />
+                                        <span asp-validation-for="ClaimValue6" class="text-danger"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="success">
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimType7" class="control-label"></label>
+                                        <input asp-for="ClaimType7" class="form-control" />
+                                        <span asp-validation-for="ClaimType7" class="text-danger"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimValue7" class="control-label"></label>
+                                        <input asp-for="ClaimValue7" class="form-control" />
+                                        <span asp-validation-for="ClaimValue7" class="text-danger"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="success">
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimType8" class="control-label"></label>
+                                        <input asp-for="ClaimType8" class="form-control" />
+                                        <span asp-validation-for="ClaimType8" class="text-danger"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimValue8" class="control-label"></label>
+                                        <input asp-for="ClaimValue8" class="form-control" />
+                                        <span asp-validation-for="ClaimValue8" class="text-danger"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="success">
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimType9" class="control-label"></label>
+                                        <input asp-for="ClaimType9" class="form-control" />
+                                        <span asp-validation-for="ClaimType9" class="text-danger"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimValue9" class="control-label"></label>
+                                        <input asp-for="ClaimValue9" class="form-control" />
+                                        <span asp-validation-for="ClaimValue9" class="text-danger"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="success">
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimType10" class="control-label"></label>
+                                        <input asp-for="ClaimType10" class="form-control" />
+                                        <span asp-validation-for="ClaimType10" class="text-danger"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <label asp-for="ClaimValue10" class="control-label"></label>
+                                        <input asp-for="ClaimValue10" class="form-control" />
+                                        <span asp-validation-for="ClaimValue10" class="text-danger"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

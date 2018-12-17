@@ -1,0 +1,73 @@
+﻿@model SCTS.IdentityServer4.UI.LoginViewModel
+
+@{
+    ViewData["Title"] = "Sample";
+}
+
+<h2>Sample</h2>
+
+<h4>LoginViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Sample">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="AllowRememberLogin" /> @Html.DisplayNameFor(model => model.AllowRememberLogin)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="EnableLocalLogin" /> @Html.DisplayNameFor(model => model.EnableLocalLogin)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsExternalLoginOnly" /> @Html.DisplayNameFor(model => model.IsExternalLoginOnly)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExternalLoginScheme" class="control-label"></label>
+                <input asp-for="ExternalLoginScheme" class="form-control" />
+                <span asp-validation-for="ExternalLoginScheme" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="RememberLogin" /> @Html.DisplayNameFor(model => model.RememberLogin)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReturnUrl" class="control-label"></label>
+                <input asp-for="ReturnUrl" class="form-control" />
+                <span asp-validation-for="ReturnUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

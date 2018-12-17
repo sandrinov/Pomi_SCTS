@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <img src="~/images/scts1.png" alt="scts" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Identity Test</h2>
+        <form asp-action="CallIdentity">
+            <div class="form-group">
+                <input type="submit" value="Who am I?" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+    <div class="col-md-3">
+        <h2>What is SCTS?</h2>
+        <p>SCTS stands for "Supply Chain Tracking System". STCS is a Smart Contract framework to keep tracking of products from the raw materials to the shopping stage. This system is powered by the Ethereum Blockchain, so it's fully distributed, immutable and auditable</p>
+    </div>
+    <div class="col-md-3">
+        <h2>How's this done?</h2>
+        <p>
+            Every Product in SCTS is represented in a Smart Contract, which keeps track of actions being made by Ethereum accounts. The community in charge of SCTS (could be a government, a consortium or even a DAO) can register this account as official SCTS Product Handlers, so their identity is stored in the Blockchain being impossible for fake producers or suppliers to cheat and sell products in the name of a registered Brand.
+            Because of this, any costumer, government or regulatory institution can scan a QR code in the product packaging, which identifies the Smart Contract representing the exact unit of the Product, or even introduce the address of the Smart Contract, and be able to track and audit all the life of the Product.
+            But there's more. Anyone will be also able to introduce the code of a SCTS Product Handler and see all the actions this individual or institution has performed on SCTS Products, empowering a more transparent and fair global economic system.
+        </p>
+    </div>
+    <div class="col-md-3">
+        <h2>How do we know that a Handler is not cheating?</h2>
+        <p> It's as easy as playing a game. SCTS is designed following game theories, so it enforces everyone to look for a win win. A registered Handler is a reputed individual or institution which depends a lot on marketing and credibility, if it cheats and get discovered, its reputation will be seriously hurt, so it'll put in a huge risk its relationship with partners, governments and institutions. If the Handler acts in a correct way, it'll maintain and even increase a huge reputation being seen as a trustful, responsible and fair company.</p>
+
+    </div>
+</div>

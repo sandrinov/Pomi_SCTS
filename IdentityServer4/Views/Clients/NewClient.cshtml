@@ -1,0 +1,100 @@
+﻿@model SCTS.IdentityServer4.Controllers.Clients.ClientViewModel
+
+@{
+    ViewData["Title"] = "NewClient";
+}
+
+<h2>NewClient</h2>
+
+<h4>ClientViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="NewClient">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClientName" class="control-label"></label>
+                <input asp-for="ClientName" class="form-control" />
+                <span asp-validation-for="ClientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientId" class="control-label"></label>
+                <input asp-for="ClientId" class="form-control" />
+                <span asp-validation-for="ClientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccessTokenLifetime" class="control-label"></label>
+                <input asp-for="AccessTokenLifetime" class="form-control" />
+                <span asp-validation-for="AccessTokenLifetime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="AllowOfflineAccess" /> @Html.DisplayNameFor(model => model.AllowOfflineAccess)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="AllowRememberConsent" /> @Html.DisplayNameFor(model => model.AllowRememberConsent)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientSecrets" class="control-label"></label>
+                <input asp-for="ClientSecrets" class="form-control" />
+                <span asp-validation-for="ClientSecrets" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowedScopes" class="control-label"></label>
+                <input asp-for="AllowedScopes" class="form-control" />
+                <span asp-validation-for="AllowedScopes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RedirectUris" class="control-label"></label>
+                <input asp-for="RedirectUris" class="form-control" />
+                <span asp-validation-for="RedirectUris" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostLogoutRedirectUris" class="control-label"></label>
+                <input asp-for="PostLogoutRedirectUris" class="form-control" />
+                <span asp-validation-for="PostLogoutRedirectUris" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllowedGrantTypes" class="control-label"></label>
+                <input asp-for="AllowedGrantTypes" class="form-control" />
+                <span asp-validation-for="AllowedGrantTypes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <table class="table">
+            <thead>
+                <tr  class="success">
+                    <th>Parameter Name</th>
+                    <th>Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Client Scopes</td>
+                    <td>openid, profile, roles, api, chat</td>
+                    
+                </tr>
+                <tr>
+                    <td>Client GrantType</td>
+                    <td>hybrid, client_credentials, authorization_code, implicit, resourceownerpassword</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

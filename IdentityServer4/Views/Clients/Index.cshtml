@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Clients";
+}
+
+<h2>Clients</h2>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">New Client</h3>
+            </div>
+            <div class="panel-body">
+
+                <form asp-action="NewClient" method="get">
+                    <fieldset>
+                        <div class="form-group">
+                            <div>
+                                <input type="submit" value="New Client" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Client List</h3>
+            </div>
+            <div class="panel-body">
+                <select class=" form-control" asp-items="@(new SelectList(ViewBag.ClientList, "ClientId", "ClientName"))">
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+

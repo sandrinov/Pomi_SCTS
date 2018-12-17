@@ -1,0 +1,45 @@
+﻿@model SCTS.IdentityServer4.Controllers.ApiResources.ApiResourceViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Api Resource</h2>
+
+<h4>New ApiResource</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Secrets" class="control-label"></label>
+                <input asp-for="Secrets" class="form-control" />
+                <span asp-validation-for="Secrets" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Claims" class="control-label"></label>
+                <input asp-for="Claims" class="form-control" />
+                <span asp-validation-for="Claims" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Scopes" class="control-label"></label>
+                <input asp-for="Scopes" class="form-control" />
+                <span asp-validation-for="Scopes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

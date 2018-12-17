@@ -1,0 +1,39 @@
+﻿@model IEnumerable<HandlerViewModel>
+
+<h4> List of the handler of this Blockchain as result in Ethereum Blockchain http://localhost:7545 </h4>
+<p>
+    <a asp-action="NewHandler">Create New Handler</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HandlerAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HandlerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdditionalInformation)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HandlerAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HandlerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdditionalInformation)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
