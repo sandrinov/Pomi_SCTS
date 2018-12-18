@@ -1,0 +1,3 @@
+# Pomi_SCTS
+**Nethereum.Web3 to implement a Supply Chain Traking System** <br/>
+I created a supply chain system that makes use of the Ethereum blockchain structure. Each step of the product, from creation to each transfer, is stored as a transaction on the blockchain. At every step an action is assigned to the product and this is memorized through the invocation of a smart contract method. In this example you will find all the c # code developed using the Nethereum.Web3 library and all the Solidity code related to the smart contract. The localhost version of Ganache was used to simulate the presence of a Blòockchain. There is also a copy of the DB that uses the Identity server to authenticate each user and associate it with an Ethereum Address.
