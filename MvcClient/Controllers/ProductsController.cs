@@ -335,7 +335,7 @@ namespace MvcClient.Controllers
                     var getHandler = db_contract.GetFunction("getHandler");
                     var dto_handler = await getHandler.CallDeserializingToObjectAsync<DTO_Handler>(bc_address, new Nethereum.Hex.HexTypes.HexBigInteger(4712388), null, handler_address);
 
-                    listOfAction.Add(new ActionHistoryViewModel(dto_action, dto_action.Handler, dto_handler.AdditionalInformation));
+                    listOfAction.Add(new ActionHistoryViewModel(dto_action, dto_handler.HandlerName, dto_handler.AdditionalInformation));
                 }
             }
             catch (Exception excp)
