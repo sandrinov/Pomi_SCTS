@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -139,7 +140,9 @@ namespace MvcClient.Controllers
                     {
                         FromAddress = bc_address,
                         Gas = gasForDeployContract,
+                        //Name = ConvertinHex(model.ProductName),
                         Name = model.ProductName,
+                        //AdditionalInformation = ConvertinHex(model.ProductDescription),
                         AdditionalInformation = model.ProductDescription,
                         Latitude = param_lat,
                         Longitude = param_lon,
@@ -332,7 +335,7 @@ namespace MvcClient.Controllers
                     var getHandler = db_contract.GetFunction("getHandler");
                     var dto_handler = await getHandler.CallDeserializingToObjectAsync<DTO_Handler>(bc_address, new Nethereum.Hex.HexTypes.HexBigInteger(4712388), null, handler_address);
 
-                    listOfAction.Add(new ActionHistoryViewModel(dto_action, dto_handler.HandlerName, dto_handler.AdditionalInformation));
+                    listOfAction.Add(new ActionHistoryViewModel(dto_action, dto_action.Handler, dto_handler.AdditionalInformation));
                 }
             }
             catch (Exception excp)
@@ -343,6 +346,13 @@ namespace MvcClient.Controllers
 
 
             return View(listOfAction);
+        }
+        private string ConvertinHex(String s)
+        {
+            byte[] ba = Encoding.Default.GetBytes(s);
+            var hexString = BitConverter.ToString(ba);
+            hexString = "0x" + hexString.Replace("-", "");
+            return hexString;
         }
     }
 }
