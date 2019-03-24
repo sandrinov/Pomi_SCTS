@@ -329,7 +329,7 @@ namespace MvcClient.Controllers
                 for (int i = 0; i < numOfActions; i++)
                 {
                     var dto_action = await getAction.CallDeserializingToObjectAsync<DTO_Action>(bc_address, new Nethereum.Hex.HexTypes.HexBigInteger(4712388), null, i);
-
+                    //
                     var handler_address = dto_action.Handler;
 
                     var getHandler = db_contract.GetFunction("getHandler");
