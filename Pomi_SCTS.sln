@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcClient", "MvcClient\MvcC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{99827393-BD09-4170-BB38-76D833EDD4BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IQC_Dapp", "IQC_Dapp\IQC_Dapp.csproj", "{07C463D5-608F-48F9-8855-E933CB57733C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{99827393-BD09-4170-BB38-76D833EDD4BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99827393-BD09-4170-BB38-76D833EDD4BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99827393-BD09-4170-BB38-76D833EDD4BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07C463D5-608F-48F9-8855-E933CB57733C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C463D5-608F-48F9-8855-E933CB57733C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C463D5-608F-48F9-8855-E933CB57733C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C463D5-608F-48F9-8855-E933CB57733C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
