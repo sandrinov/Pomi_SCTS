@@ -6,7 +6,7 @@ namespace MvcClient.EthereumHelper
 {
     public class ProductDeployment : ContractDeploymentMessage
     {
-        public static string BYTECODE = BlockChain.ProductByteCode;
+        public static string BYTECODE = new BlockChain().Get_ByteCode("Product");
 
         public ProductDeployment() : base(BYTECODE) { }
 

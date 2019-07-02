@@ -15,6 +15,7 @@ namespace MvcClient.Controllers
     public class HandlersController : Controller
     {
         public IConfiguration Configuration { get; }
+        private BlockChain BC = new BlockChain();
         public HandlersController(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -39,7 +40,7 @@ namespace MvcClient.Controllers
             try
             {
                 var web3 = new Web3(ethereumAddress);
-                var db_contract = web3.Eth.GetContract(BlockChain.DatabaseABI, BlockChain.DataBaseAddress);
+                var db_contract = web3.Eth.GetContract(BC.Get_ABI("Database"), BC.Get_Address("Database"));
 
                 var getNumberOfHandlers = db_contract.GetFunction("getNumberOfHandlers");
                 var numOfHandlers = await getNumberOfHandlers.CallAsync<uint>();
@@ -109,7 +110,7 @@ namespace MvcClient.Controllers
                 try
                 {
                     var web3 = new Web3(ethereumAddress);
-                    var db_contract = web3.Eth.GetContract(BlockChain.DatabaseABI, BlockChain.DataBaseAddress);
+                    var db_contract = web3.Eth.GetContract(BC.Get_ABI("Database"), BC.Get_Address("Database"));
                     var addAction = db_contract.GetFunction("addHandler");
                     var transactionInput = addAction.CreateTransactionInput(bc_address, new Nethereum.Hex.HexTypes.HexBigInteger(4712388), new Nethereum.Hex.HexTypes.HexBigInteger(0));
                     var x1 = await addAction.SendTransactionAsync(transactionInput, model.HandlerAddress, model.HandlerName, model.AdditionalInformation);
@@ -124,7 +125,7 @@ namespace MvcClient.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return RedirectToAction("Index");
         }
     }
 }

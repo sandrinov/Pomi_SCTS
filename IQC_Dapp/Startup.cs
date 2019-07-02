@@ -24,6 +24,7 @@ namespace IQC_Dapp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             Uri endPointA = new Uri((Configuration.GetSection("Endpoints")["ApiServerBaseAddress"]).ToString()); // this is the endpoint HttpClient will hit
             HttpClient httpClient = new HttpClient()
             {

@@ -22,6 +22,7 @@ namespace MvcClient.Controllers
     public class ProductsController : Controller
     {
         private HttpClient _httpClient = new HttpClient();
+        private BlockChain BC = new BlockChain();
         public IConfiguration Configuration { get; }
         public ProductsController(IConfiguration configuration)
         {
@@ -53,7 +54,7 @@ namespace MvcClient.Controllers
                 var web3 = new Web3(ethereumAddress);
 
 
-                var db_contract = web3.Eth.GetContract(BlockChain.DatabaseABI, BlockChain.DataBaseAddress);
+                var db_contract = web3.Eth.GetContract(BC.Get_ABI("Database"), BC.Get_Address("Database"));
 
                 var getNumberOfProducts = db_contract.GetFunction("getNumberOfProducts");
                 var numOfProducts = await getNumberOfProducts.CallAsync<uint>();
@@ -63,7 +64,7 @@ namespace MvcClient.Controllers
                     var getProduct = db_contract.GetFunction("getProduct");
                     var productAddress = await getProduct.CallAsync<String>(bc_address, new Nethereum.Hex.HexTypes.HexBigInteger(4712388), null, i);
 
-                    var product_contract = web3.Eth.GetContract(BlockChain.ProductABI, productAddress);
+                    var product_contract = web3.Eth.GetContract(BC.Get_ABI("Product"), productAddress);
                     var name_property = product_contract.GetFunction("name");
                     var additionalInformation_property = product_contract.GetFunction("additionalInformation");
                     var isConsumed_property = product_contract.GetFunction("isConsumed");
@@ -127,9 +128,9 @@ namespace MvcClient.Controllers
                 try
                 {
                     var web3 = new Web3(ethereumAddress);
-                    var db_contract = web3.Eth.GetContract(BlockChain.DatabaseABI, BlockChain.DataBaseAddress);
+                    var db_contract = web3.Eth.GetContract(BC.Get_ABI("Database"), BC.Get_Address("Database"));
 
-                    var productABI = BlockChain.ProductABI;
+                    var productABI = BC.Get_ABI("Product");
 
                     var param_lat = Convert.ToInt32(Decimal.Parse(model.Latitude) * 1000000);
                     var param_lon = Convert.ToInt32(Decimal.Parse(model.Longitude) * 1000000);
@@ -146,7 +147,7 @@ namespace MvcClient.Controllers
                         AdditionalInformation = model.ProductDescription,
                         Latitude = param_lat,
                         Longitude = param_lon,
-                        DataBaseContract = BlockChain.DataBaseAddress
+                        DataBaseContract = BC.Get_Address("Database")
                     };
 
                     var deploymentHandler = web3.Eth.GetContractDeploymentHandler<ProductDeployment>();
@@ -199,12 +200,12 @@ namespace MvcClient.Controllers
             try
             {
                 var web3 = new Web3(ethereumAddress);
-                var db_contract = web3.Eth.GetContract(BlockChain.DatabaseABI, BlockChain.DataBaseAddress);
+                var db_contract = web3.Eth.GetContract(BC.Get_ABI("Database"), BC.Get_Address("Database"));
 
                 var getProduct = db_contract.GetFunction("getProduct");
                 var productAddress = await getProduct.CallAsync<String>(bc_address, new Nethereum.Hex.HexTypes.HexBigInteger(4712388), null, id);
 
-                var product_contract = web3.Eth.GetContract(BlockChain.ProductABI, productAddress);
+                var product_contract = web3.Eth.GetContract(BC.Get_ABI("Product"), productAddress);
 
                 var name_property = product_contract.GetFunction("name");
                 var additionalInformation_property = product_contract.GetFunction("additionalInformation");
@@ -253,11 +254,11 @@ namespace MvcClient.Controllers
             try
             {
                 var web3 = new Web3(ethereumAddress);
-                var db_contract = web3.Eth.GetContract(BlockChain.DatabaseABI, BlockChain.DataBaseAddress);
+                var db_contract = web3.Eth.GetContract(BC.Get_ABI("Database"), BC.Get_Address("Database"));
                 var getProduct = db_contract.GetFunction("getProduct");
                 var productAddress = await getProduct.CallAsync<String>(bc_address, new Nethereum.Hex.HexTypes.HexBigInteger(4712388), null, index);
 
-                var product_contract = web3.Eth.GetContract(BlockChain.ProductABI, productAddress);
+                var product_contract = web3.Eth.GetContract(BC.Get_ABI("Product"), productAddress);
 
                 var name_property = product_contract.GetFunction("name");
                 var additionalInformation_property = product_contract.GetFunction("additionalInformation");
@@ -308,11 +309,11 @@ namespace MvcClient.Controllers
             try
             {
                 var web3 = new Web3(ethereumAddress);
-                var db_contract = web3.Eth.GetContract(BlockChain.DatabaseABI, BlockChain.DataBaseAddress);
+                var db_contract = web3.Eth.GetContract(BC.Get_ABI("Database"), BC.Get_Address("Database"));
                 var getProduct = db_contract.GetFunction("getProduct");
                 var productAddress = await getProduct.CallAsync<String>(bc_address, new Nethereum.Hex.HexTypes.HexBigInteger(4712388), null, id);
 
-                var product_contract = web3.Eth.GetContract(BlockChain.ProductABI, productAddress);
+                var product_contract = web3.Eth.GetContract(BC.Get_ABI("Product"), productAddress);
 
                 var name_property = product_contract.GetFunction("name");
                 var isConsumed_property = product_contract.GetFunction("isConsumed");
